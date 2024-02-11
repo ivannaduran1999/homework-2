@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorageManager</title>
+    <script>function LocalStorageManager() {}
+LocalStorageManager.prototype.setItem = function() {
+    localStorage.setItem("animal", "elephant");
+    console.log("Data with key 'animal' and value 'elephant' has been successfully saved to localStorage.");
+};
+LocalStorageManager.prototype.getItem = function() {
+    const elephant = localStorage.getItem("animal");
+    console.log("Data with key 'animal' has been successfully retrieved from localStorage. Value:", elephant);
+};
+const localStorageManager = new LocalStorageManager();
+localStorageManager.setItem();
+const retrievedValue = localStorageManager.getItem();
+
+</script>
+  </head>
+  <body><script src="/task_1.0cf1fc66.js"></script></body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen API</title>
+    <script>
+      function toggleFullscreen() {
+        var element = document.getElementById('fullscreenElement');
+
+        if (document.fullscreenElement) {
+          document.exitFullscreen().catch((err) => {
+            console.error("Error attempting to exit fullscreen:", err);
+          });
+        } else {
+          element.requestFullscreen().catch((err) => {
+            console.error('Error attempting to enable fullscreen:', err);
+          });
+        }
+      }
+      
+      document.addEventListener('fullscreenchange', () => {
+        var element = document.getElementById('fullscreenElement');
+        if (document.fullscreenElement) {
+          element.style.background = 'black';
+          element.style.color = 'white';
+        } else {
+          element.style.background = 'white';
+          element.style.color = 'black';
+        }
+      });
+    </script>
+</head>
+<body>
+    <button onclick="toggleFullscreen()">Toggle Fullscreen</button>
+    <div
+      id="fullscreenElement"
+      style="width: 300px; height: 200px; border: 2px solid black;">
+      <p>Fullscreen API</p>
+    </div>
+</body>
+</html>
